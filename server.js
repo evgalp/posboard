@@ -19,11 +19,6 @@ mongoose
 
 // Routes
 const posts = require('./routes/posts');
-const profile = require('./routes/profile');
-const users = require('./routes/users');
-
-
-// app.get('/', (req, res) => res.send('hello'));
 
 const port = process.env.PORT || 5000;
 
@@ -34,5 +29,3 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Use routes
 app.use('/routes/posts', posts);
-app.use('/routes/profile', profile);
-app.use('/routes/users', users);
