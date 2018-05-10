@@ -1,7 +1,7 @@
 {
-  "name": "piscboard",
+  "name": "postboard",
   "version": "1.0.0",
-  "description": "\"# picsboard\"",
+  "description": "\"# postboard\"",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
