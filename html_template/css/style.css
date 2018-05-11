@@ -3,3 +3,11 @@
     border-radius: 4px;
     padding: 6px 10px; 
 }
+
+.post-title{
+    margin-bottom: 10px;
+}
+
+.post-date{
+    margin-top: 10px;
+}
