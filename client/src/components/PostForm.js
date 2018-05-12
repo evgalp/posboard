@@ -18,12 +18,12 @@ class PostForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+    // newPost - data to be sent in request; field must match req.body fields
     let newPost = {
-      postTitle: this.state.postTitle,
-      postContent: this.state.postContent
+      title: this.state.postTitle,
+      content: this.state.postContent
     };
 
-    // console.log(newPost);
     this.props.addPost(newPost);
   }
 
@@ -32,7 +32,6 @@ class PostForm extends Component {
   }
 
   render() {
-    const { postData } = this.props.postData;
     return (
       <div className="container">
         <div className="row">
@@ -65,17 +64,16 @@ class PostForm extends Component {
             <div className="row">
               <input className="button-primary four columns" type="submit" />
             </div>
-            <div className="row">
-              Title: {postData ? postData.postTitle : null}
-              <br />
-              Text: {postData ? postData.postContent : null}
-            </div>
           </form>
         </div>
       </div>
     );
   }
 }
+
+PostForm.propTypes = {
+  postData: PropTypes.object.isRequired
+};
 
 // is taken from combineReducers export default combineReducers({post:postReducer});
 

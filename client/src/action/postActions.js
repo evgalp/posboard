@@ -1,8 +1,8 @@
-import { ADD_POST } from "./types";
+import axios from "axios";
 
-export const addPost = postData => {
-  return {
-    type: ADD_POST,
-    payload: postData
-  };
+export const addPost = postData => dispatch => {
+  axios
+    .post("routes/posts/add", postData)
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
 };
