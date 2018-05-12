@@ -9,9 +9,7 @@ class PostForm extends Component {
     super();
     this.state = {
       postTitle: "",
-      postContent: "",
-
-      post: ""
+      postContent: ""
     };
 
     this.onChange = this.onChange.bind(this);
@@ -34,7 +32,7 @@ class PostForm extends Component {
   }
 
   render() {
-    const { post } = this.props.post;
+    const { postData } = this.props.postData;
     return (
       <div className="container">
         <div className="row">
@@ -68,9 +66,9 @@ class PostForm extends Component {
               <input className="button-primary four columns" type="submit" />
             </div>
             <div className="row">
-              Title: {post ? post.postTitle : null}
+              Title: {postData ? postData.postTitle : null}
               <br />
-              Text: {post ? post.postContent : null}
+              Text: {postData ? postData.postContent : null}
             </div>
           </form>
         </div>
@@ -82,7 +80,7 @@ class PostForm extends Component {
 // is taken from combineReducers export default combineReducers({post:postReducer});
 
 const mapStateToProps = state => ({
-  post: state.post
+  postData: state.postData
 });
 
 export default connect(mapStateToProps, { addPost })(PostForm);

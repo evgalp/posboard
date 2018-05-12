@@ -11,7 +11,7 @@ export default function(state = initialState, action) {
     case ADD_POST:
       return {
         ...state,
-        post: action.payload
+        postData: action.payload
       };
     default:
       return state;
