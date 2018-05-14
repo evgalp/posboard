@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Provider } from "react-redux";
 import store from "./store";
 
+import Postform from "./components/Postform";
 import Postboard from "./components/Postboard";
 
 import "./css/normalize.css";
@@ -20,6 +21,7 @@ class App extends Component {
               </div>
             </div>
           </div>
+          <Postform />
           <Postboard />
         </div>
       </Provider>

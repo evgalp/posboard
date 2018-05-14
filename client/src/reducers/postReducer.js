@@ -1,9 +1,9 @@
-import { GET_ALL_POSTS } from "../actions/types";
+import { GET_ALL_POSTS, ADD_POST } from "../actions/types";
 
 const initialState = {
   newPost: {
     title: "",
-    text: ""
+    content: ""
   },
   items: []
 };
@@ -17,6 +17,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         items: action.payload
+      };
+    case ADD_POST:
+      return {
+        ...state,
+        newPost: action.payload
       };
     default:
       return state;

@@ -8,8 +8,16 @@ class Postboard extends Component {
     console.log("Postboard mounted");
     this.props.getAllPosts();
   }
+
+  componentWillReceiveProps(nextProps) {
+    console.log("nextProps ", nextProps);
+    if (nextProps.newPost) {
+      this.props.componentAliasForPostsArray.unshift(nextProps.newPost);
+    }
+  }
+
   render() {
-    const postItems = this.props.component_alias_posts.map(post => (
+    const postItems = this.props.componentAliasForPostsArray.map(post => (
       <div key={post._id} className="post">
         <h4 className="post-title">{post.title}</h4>
         <div className="post-text">{post.content}</div>
@@ -22,7 +30,7 @@ class Postboard extends Component {
       <div className="container">
         <div className="row">
           <div className="columns six">
-            <h2>Recent posts</h2>
+            <h3>Recent posts</h3>
           </div>
         </div>
         <div className="row recent-posts">{postItems}</div>
@@ -33,12 +41,13 @@ class Postboard extends Component {
 
 Postboard.propTypes = {
   getAllPosts: PropTypes.func.isRequired,
-  component_alias_posts: PropTypes.array.isRequired
+  componentAliasForPostsArray: PropTypes.array.isRequired
 };
 
 const mapStateToProps = function mapStateToProps(state) {
   return {
-    component_alias_posts: state.root_reducer_alias_for_post_reducer.items
+    componentAliasForPostsArray: state.rootReducerAliasForPostReducer.items,
+    newPost: state.rootReducerAliasForPostReducer.newPost.data
   };
 };
 export default connect(mapStateToProps, { getAllPosts })(Postboard);
